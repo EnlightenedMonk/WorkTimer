@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/wrapper"
+
+                android:orientation="vertical"
+
+                android:background="@color/colorBackgroundWrapper"
+                android:layout_marginTop="20dp"
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+
+                    android:id="@+id/layoutDateStart"
+
+                    android:padding="10dp"
+                    android:layout_marginBottom="10dp"
+                    >
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/txtDateStart"
+
+                        android:textColor="@color/colorText"
+                        android:textAlignment="center"
+                        android:textSize="@dimen/dateFont"
+
+                        android:hint="Start date"
+                        />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+
+                    android:id="@+id/layoutTime"
+                    >
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/txtTimeStart"
+
+                        android:textColor="@color/colorText"
+                        android:textAlignment="center"
+                        android:textSize="@dimen/dateFont"
+
+                        android:hint="Start Time"
+
+                        android:padding="10dp"
+                        android:layout_marginBottom="10dp"
+                        />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2px"
+                        android:background="@color/colorText"
+                        />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+
+                        android:id="@+id/layoutDateEnd"
+
+                        android:padding="10dp"
+                        android:layout_marginBottom="10dp"
+                        >
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/txtDateEnd"
+
+                            android:textColor="@color/colorText"
+                            android:textAlignment="center"
+                            android:textSize="@dimen/dateFont"
+
+                            android:hint="End date"
+                            />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/txtTimeEnd"
+
+                        android:textColor="@color/colorText"
+                        android:textAlignment="center"
+                        android:textSize="@dimen/dateFont"
+
+                        android:hint="End Time"
+
+                        android:padding="10dp"
+                        android:layout_marginBottom="10dp"
+                        />
+
+                </LinearLayout>
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/btnAccept"
+
+                    android:background="@color/colorText"
+                    android:textColor="@color/colorPrimary"
+
+                    android:text="Accept"
+                    />
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/btnCancel"
+
+                    android:background="@color/colorAccent"
+                    android:textColor="@color/colorText"
+
+                    android:text="Cancel"
+                    />
+            </LinearLayout>
+
+</LinearLayout>
