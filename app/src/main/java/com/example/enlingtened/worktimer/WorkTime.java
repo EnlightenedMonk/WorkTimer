@@ -205,7 +205,7 @@ public class WorkTime extends LinearLayout{
 
                     // Disable Accept button
                     btnAccept.setVisibility(GONE);
-                    btnCancel.setText("@string/delete");
+                    btnCancel.setText(getResources().getString(R.string.delete));
 
                     // Disable clickability
                     txtDateStart.setOnClickListener(null);
