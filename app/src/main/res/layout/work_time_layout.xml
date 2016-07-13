@@ -33,8 +33,6 @@
                         android:textColor="@color/colorText"
                         android:textAlignment="center"
                         android:textSize="@dimen/dateFont"
-
-                        android:hint="Start date"
                         />
 
                 </LinearLayout>
@@ -54,8 +52,6 @@
                         android:textColor="@color/colorText"
                         android:textAlignment="center"
                         android:textSize="@dimen/dateFont"
-
-                        android:hint="Start Time"
 
                         android:padding="10dp"
                         android:layout_marginBottom="10dp"
@@ -87,7 +83,7 @@
                             android:textAlignment="center"
                             android:textSize="@dimen/dateFont"
 
-                            android:hint="End date"
+                            android:hint="@string/endDate"
                             />
 
                     </LinearLayout>
@@ -101,7 +97,7 @@
                         android:textAlignment="center"
                         android:textSize="@dimen/dateFont"
 
-                        android:hint="End Time"
+                        android:hint="@string/endTime"
 
                         android:padding="10dp"
                         android:layout_marginBottom="10dp"
@@ -116,7 +112,7 @@
                     android:background="@color/colorText"
                     android:textColor="@color/colorPrimary"
 
-                    android:text="Accept"
+                    android:text="@string/accept"
                     />
 
                 <Button
@@ -127,7 +123,7 @@
                     android:background="@color/colorAccent"
                     android:textColor="@color/colorText"
 
-                    android:text="Cancel"
+                    android:text="@string/cancel"
                     />
             </LinearLayout>
 

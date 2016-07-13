@@ -38,13 +38,11 @@ import java.lang.Object;
 
 public class WorkTime extends LinearLayout{
     // Define hooks to the children of compound control and global variables
-    public LinearLayout layoutDateStart;
     TextView txtDateStart;
     int dayStart;
     int monthStart;
     int yearStart;
 
-    public LinearLayout layoutDateEnd;
     TextView txtDateEnd;
     int dayEnd;
     int monthEnd;
@@ -60,7 +58,6 @@ public class WorkTime extends LinearLayout{
     Context con;
 
     View me = this;
-
 
     // For setting time; setTime
     Calendar localTime = Calendar.getInstance();
@@ -96,8 +93,6 @@ public class WorkTime extends LinearLayout{
         inflater.inflate(R.layout.work_time_layout, this);
 
         // Get ids
-        layoutDateStart = (LinearLayout) findViewById(R.id.layoutDateStart);
-        layoutDateEnd = (LinearLayout) findViewById(R.id.layoutDateEnd);
         txtTimeStart = (TextView) findViewById(R.id.txtTimeStart);
         txtTimeEnd = (TextView) findViewById(R.id.txtTimeEnd);
 
@@ -139,56 +134,7 @@ public class WorkTime extends LinearLayout{
         sbDateStart.append(calendar.get(Calendar.DAY_OF_MONTH)).append(" ");
         dayStart = calendar.get(Calendar.DAY_OF_MONTH);
 
-        switch (calendar.get(Calendar.MONTH) + 1)
-        {
-            case 1:
-                sbDateStart.append("Styczeń");
-                break;
-
-            case 2:
-                sbDateStart.append("Luty");
-                break;
-
-            case 3:
-                sbDateStart.append("Marzec");
-                break;
-
-            case 4:
-                sbDateStart.append("Kwiecień");
-                break;
-
-            case 5:
-                sbDateStart.append("Maj");
-                break;
-
-            case 6:
-                sbDateStart.append("Czerwiec");
-                break;
-
-            case 7:
-                sbDateStart.append("Lipiec");
-                break;
-
-            case 8:
-                sbDateStart.append("Sierpień");
-                break;
-
-            case 9:
-                sbDateStart.append("Wrzesień");
-                break;
-
-            case 10:
-                sbDateStart.append("Październik");
-                break;
-
-            case 11:
-                sbDateStart.append("Listopad");
-                break;
-
-            case 12:
-                sbDateStart.append("Grudzień");
-                break;
-        }
+        sbDateStart.append(getMonth(calendar.get(Calendar.MONTH) + 1));
         monthStart = calendar.get(Calendar.MONTH) + 1;
 
         sbDateStart.append(" ").append(calendar.get(Calendar.YEAR));
@@ -202,7 +148,7 @@ public class WorkTime extends LinearLayout{
     // hookup controls for layout compounds - onClickListeners
     private void hookupControls()
     {
-        layoutDateStart.setOnClickListener(new LinearLayout.OnClickListener(){
+        txtDateStart.setOnClickListener(new LinearLayout.OnClickListener(){
             public void onClick(View v)
             {
 
@@ -218,7 +164,7 @@ public class WorkTime extends LinearLayout{
             }
         });
 
-        layoutDateEnd.setOnClickListener(new OnClickListener() {
+        txtDateEnd.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -239,31 +185,39 @@ public class WorkTime extends LinearLayout{
             public void onClick(View v)
             {
 
-                // Set sum value - time from all work times
-                MainActivity.setSum(calculateTime());
+                if(txtDateEnd.getText() != "" && txtTimeEnd.getText() != "")
+                {
+                    // Set sum value - time from all work times
+                    MainActivity.setSum(calculateTime());
 
-                // Get time from all work times
-                long temp = MainActivity.getSum();
+                    // Get time from all work times
+                    long temp = MainActivity.getSum();
 
-                // Calculate hour and min out of summary time (in milliseconds)
-                diffHour = temp / (60 * 60 * 1000);
-                diffMin = temp / (60 * 1000) % 60;
+                    // Calculate hour and min out of summary time (in milliseconds)
+                    diffHour = temp / (60 * 60 * 1000);
+                    diffMin = temp / (60 * 1000) % 60;
 
-                // Set string for displaying summary time
-                txtUpdate = diffHour + "h " + diffMin + "m ";
+                    // Set string for displaying summary time
+                    txtUpdate = diffHour + "h " + diffMin + "m ";
 
-                // Update string
-                MainActivity.updateSum(txtUpdate);
+                    // Update string
+                    MainActivity.updateSum(txtUpdate);
 
-                // Disable Accept button
-                btnAccept.setVisibility(GONE);
-                btnCancel.setText("Delete");
+                    // Disable Accept button
+                    btnAccept.setVisibility(GONE);
+                    btnCancel.setText("@string/delete");
 
-                // Disable clickability
-                txtDateStart.setOnClickListener(null);
-                txtDateEnd.setOnClickListener(null);
-                txtTimeStart.setOnClickListener(null);
-                txtTimeEnd.setOnClickListener(null);
+                    // Disable clickability
+                    txtDateStart.setOnClickListener(null);
+                    txtDateEnd.setOnClickListener(null);
+                    txtTimeStart.setOnClickListener(null);
+                    txtTimeEnd.setOnClickListener(null);
+                }
+                else
+                {
+                    Toast.makeText(con, "Upewnij się, że wypełniłeś wszystkie pola", Toast.LENGTH_LONG).show();
+                }
+
             }
         });
 
@@ -299,6 +253,52 @@ public class WorkTime extends LinearLayout{
             }
         });
 
+    }
+
+    // Return month's name in String based on value from calendar
+    private String getMonth(int m)
+    {
+        switch (m)
+        {
+            case 1:
+                return getResources().getString(R.string.m1);
+
+            case 2:
+                return getResources().getString(R.string.m2);
+
+            case 3:
+                return getResources().getString(R.string.m3);
+
+            case 4:
+                return getResources().getString(R.string.m4);
+
+            case 5:
+                return getResources().getString(R.string.m5);
+
+            case 6:
+                return getResources().getString(R.string.m6);
+
+            case 7:
+                return getResources().getString(R.string.m7);
+
+            case 8:
+                return getResources().getString(R.string.m8);
+
+            case 9:
+                return getResources().getString(R.string.m9);
+
+            case 10:
+                return getResources().getString(R.string.m10);
+
+            case 11:
+                return getResources().getString(R.string.m11);
+
+            case 12:
+                return getResources().getString(R.string.m12);
+
+            default:
+                return getResources().getString(R.string.monthError);
+        }
     }
 
     private void showTimePicker(final TextView tv)
@@ -371,58 +371,7 @@ public class WorkTime extends LinearLayout{
             public void onDateSet(DatePicker datePicker, int y, int m, int d) {
                 // Append values to StringBuilder
                 sbDate.append(d).append(" ");
-
-                switch (m + 1)
-                {
-                    case 1:
-                        sbDate.append("Styczeń");
-                        break;
-
-                    case 2:
-                        sbDate.append("Luty");
-                        break;
-
-                    case 3:
-                        sbDate.append("Marzec");
-                        break;
-
-                    case 4:
-                        sbDate.append("Kwiecień");
-                        break;
-
-                    case 5:
-                        sbDate.append("Maj");
-                        break;
-
-                    case 6:
-                        sbDate.append("Czerwiec");
-                        break;
-
-                    case 7:
-                        sbDate.append("Lipiec");
-                        break;
-
-                    case 8:
-                        sbDate.append("Sierpień");
-                        break;
-
-                    case 9:
-                        sbDate.append("Wrzesień");
-                        break;
-
-                    case 10:
-                        sbDate.append("Październik");
-                        break;
-
-                    case 11:
-                        sbDate.append("Listopad");
-                        break;
-
-                    case 12:
-                        sbDate.append("Grudzień");
-                        break;
-                }
-
+                sbDate.append(getMonth(m+1));
                 sbDate.append(" ").append(y);
 
                 // Set chose values stored in StringBuilder as text to TextView

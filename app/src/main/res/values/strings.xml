@@ -1,3 +1,24 @@
 <resources>
     <string name="app_name">WorkTimer</string>
+    <string name="add">DODAJ</string>
+    <string name="endDate">Data zakończenia</string>
+    <string name="endTime">Czas zakończenia</string>
+    <string name="accept">AKCEPTUJ</string>
+    <string name="cancel">ANULUJ</string>
+    <string name="delete">USUŃ</string>
+
+    <string name="monthError">Niepoprawny miesiąc</string>
+    <!-- Months -->
+    <string name="m1">Styczeń</string>
+    <string name="m2">Luty</string>
+    <string name="m3">Marzec</string>
+    <string name="m4">Kwiecień</string>
+    <string name="m5">Maj</string>
+    <string name="m6">Czerwiec</string>
+    <string name="m7">Lipiec</string>
+    <string name="m8">Sierpień</string>
+    <string name="m9">Wrzesień</string>
+    <string name="m10">Październik</string>
+    <string name="m11">Listopad</string>
+    <string name="m12">Grudzień</string>
 </resources>

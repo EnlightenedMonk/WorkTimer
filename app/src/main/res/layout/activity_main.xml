@@ -22,7 +22,7 @@
             <Button
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
-                android:text="Add"
+                android:text="@string/add"
                 android:layout_gravity="start"
                 android:id="@+id/btnAdd"
                 android:background="@color/colorText"
@@ -33,18 +33,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
 
-                android:hint="Suma"
+                android:text="0h 0m"
 
                 android:id="@+id/txtSummary"
                 android:textSize="25dp"
                 android:textColor="@color/colorText"
 
-                android:layout_toEndOf="@+id/btnAdd"
-                android:layout_toRightOf="@+id/btnAdd"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="35dp"
+                android:layout_marginLeft="66dp"
 
-                />
+                android:layout_marginStart="66dp"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/btnAdd"
+                android:layout_toEndOf="@+id/btnAdd" />
     </RelativeLayout>
     <ScrollView
         android:layout_width="match_parent"
