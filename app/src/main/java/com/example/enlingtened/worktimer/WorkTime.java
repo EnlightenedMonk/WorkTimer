@@ -110,13 +110,13 @@ public class WorkTime extends LinearLayout{
         // Additional "0" if necessary
         StringBuilder timeStart = new StringBuilder();
 
-        if(hourStart < 0)
+        if(hourStart < 10)
         {
             timeStart.append("0");
         }
         timeStart.append(hourStart).append(":");
 
-        if(minStart < 0)
+        if(minStart < 10)
         {
             timeStart.append("0");
         }
